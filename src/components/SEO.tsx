@@ -19,7 +19,7 @@ export const SEO = ({
   icon,
 }: SEOProps) => {
   const location = useLocation();
-  const baseUrl = window.location.origin; //"https://hadiyatsahra.com"; // window.location.origin
+  const baseUrl = "https://fruitshadiyatsahra.com"; //"https://hadiyatsahra.com"; // window.location.origin
   const fullUrl = `${baseUrl}${location.pathname}`;
   const defaultImage = `${baseUrl}/logo.png`;
 
