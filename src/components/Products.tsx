@@ -4,6 +4,7 @@ import premiumMedjool from "@/assets/products/premium-medjool.jpg";
 import premiumAlmonds from "@/assets/products/premium-almonds.jpg";
 import qualityWalnuts from "@/assets/products/quality-walnuts.jpg";
 import roastedPistachios from "@/assets/products/roasted-pistachios.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const products = [
   {
@@ -37,8 +38,18 @@ const products = [
 ];
 
 export const Products = () => {
+
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="products" className="py-20 bg-secondary">
+    // <section id="products" className="py-20 bg-secondary">
+    <section 
+      ref={ref}
+      id="products" 
+      className={`py-20 bg-secondary transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-playfair font-bold text-4xl md:text-5xl text-primary mb-4">

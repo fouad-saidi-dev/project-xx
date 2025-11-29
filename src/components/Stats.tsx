@@ -1,4 +1,5 @@
 import { TreePine, Factory, Award, Globe } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const stats = [
   {
@@ -24,8 +25,19 @@ const stats = [
 ];
 
 export const Stats = () => {
+
+
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="features" className="py-20 bg-secondary">
+    // <section id="features" className="py-20 bg-secondary">
+    <section 
+      ref={ref}
+      id="features" 
+      className={`py-20 bg-secondary transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => {

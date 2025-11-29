@@ -1,8 +1,21 @@
 import farmImage from "@/assets/farm-aerial.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 
 export const About = () => {
+
+
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="about" className="py-20 bg-background">
+    // <section id="about" className="py-20 bg-background">
+    <section 
+      ref={ref}
+      id="about" 
+      className={`py-20 bg-background transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
